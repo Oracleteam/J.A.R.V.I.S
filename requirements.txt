@@ -6,3 +6,6 @@ pyttsx
 pyaudio
 gTTS
 pygame
+# lib to ide
+# set env noob
+# https://www.youtube.com/watch?v=f79MRyMsjrQ

@@ -1,7 +1,7 @@
-import aiml
 import os
 import time
 import argparse
+import aiml
 
 
 mode = "text"
