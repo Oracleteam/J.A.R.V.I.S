@@ -6,7 +6,9 @@ import aiml
 
 mode = "text"
 voice = "pyttsx"
-terminate = ['bye', 'buy', 'shutdown', 'exit', 'quit', 'gotosleep', 'goodbye']
+terminate = ['bye', 'buy', 'shutdown',
+             'exit', 'quit', 'gotosleep',
+             'goodbye', 'adios', 'cerrar']
 
 
 def get_arguments():
@@ -21,7 +23,7 @@ def get_arguments():
 
 
 def gtts_speak(jarvis_speech):
-    tts = gTTS(text=jarvis_speech, lang='en')
+    tts = gTTS(text=jarvis_speech, lang='es')
     tts.save('jarvis_speech.mp3')
     mixer.init()
     mixer.music.load('jarvis_speech.mp3')
@@ -46,14 +48,13 @@ def speak(jarvis_speech):
 def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Talk to J.A.R.V.I.S: ")
+        print("Habla a JAIME: ")
         audio = r.listen(source)
     try:
         print r.recognize_google(audio)
         return r.recognize_google(audio)
     except sr.UnknownValueError:
-        speak(
-            "I couldn't understand what you said! Would you like to repeat?")
+        speak("No le entiendo senor repitalo por favor")
         return(listen())
     except sr.RequestError as e:
         print("Could not request results from " +
@@ -95,9 +96,9 @@ if __name__ == '__main__':
         if mode == "voice":
             response = listen()
         else:
-            response = raw_input("Talk to J.A.R.V.I.S : ")
+            response = raw_input("Habla a JAIME : ")
         if response.lower().replace(" ", "") in terminate:
             break
         jarvis_speech = kernel.respond(response)
-        print "J.A.R.V.I.S: " + jarvis_speech
+        print "JAIME: " + jarvis_speech
         speak(jarvis_speech)

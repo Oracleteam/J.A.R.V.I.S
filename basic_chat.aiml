@@ -19,11 +19,14 @@
         <pattern>JARVIS</pattern>
         <template>
             <random>
+                <!--
                 <li>Welcome home sir!</li> 
                 <li>Always a pleasure working with you sir!</li> 
                 <li>Nice to see you sir!</li> 
                 <li>What would you like me to do sir?</li> 
-                <li>Your will is my command!</li> 
+                <li>Your will is my command!</li>
+                -->
+                <li>hola may friend</li> 
             </random>
         </template>
     </category>
